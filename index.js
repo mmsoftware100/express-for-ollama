@@ -60,13 +60,16 @@ app.post('/api/chat', async (req, res) => {
 // return html file for basic chat page
 // GET /chat - serve the HTML file
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'chat.html'));
+  res.sendFile(path.join(__dirname, 'public', 'ds3.html'));
 });
 app.get('/ds', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'deepseek.html'));
 });
 app.get('/ds2', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'ds2.html'));
+});
+app.get('/ds3', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'ds3.html'));
 });
 
 // Start server
