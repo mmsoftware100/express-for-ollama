@@ -24,7 +24,7 @@ app.set('trust proxy', true); // Trust the reverse proxy
 // });
 
 // GET /hello
-app.get('/', (req, res) => {
+app.get('/chat', (req, res) => {
   res.send("<h2>Hello World!</h2><p>Welcome to the Chat AI API</p> <a href='/chat'>Start Chatting</a>");
 });
 
@@ -59,8 +59,11 @@ app.post('/api/chat', async (req, res) => {
 
 // return html file for basic chat page
 // GET /chat - serve the HTML file
-app.get('/chat', (req, res) => {
+app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'chat.html'));
+});
+app.get('/ds', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'deepseek.html'));
 });
 
 // Start server
