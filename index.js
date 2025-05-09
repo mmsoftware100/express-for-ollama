@@ -21,6 +21,13 @@ app.post('/api/chat', (req, res) => {
   res.json({ message: data });
 });
 
+
+// return html file for basic chat page
+// GET /chat - serve the HTML file
+app.get('/chat', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'chat.html'));
+});
+
 // Start server
 app.listen(PORT, () => {
   console.log(`Server running at http://localhost:${PORT}`);
