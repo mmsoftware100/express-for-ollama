@@ -9,12 +9,12 @@ app.use(express.json());
 
 app.set('trust proxy', true); // Trust the reverse proxy
 
-app.use((req, res, next) => {
-    if (req.headers['x-forwarded-proto'] === 'https') {
-        return res.redirect('https://' + req.headers.host + req.url); // Avoid if the proxy is already handling HTTPS
-    }
-    next();
-});
+// app.use((req, res, next) => {
+//     if (req.headers['x-forwarded-proto'] === 'https') {
+//         return res.redirect('https://' + req.headers.host + req.url); // Avoid if the proxy is already handling HTTPS
+//     }
+//     next();
+// });
 
 // GET /hello
 app.get('/', (req, res) => {
