@@ -12,4 +12,6 @@ pm2 save
 
 npm install -g pm2
 pm2 start index.js
+
+pm2 start index.js --watch
 ```
