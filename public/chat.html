@@ -82,7 +82,7 @@
                 return;
             }
 
-            outputElement.textContent = '';
+            outputElement.textContent = 'thinking...';
             promptInput.value = '';
 
             const data = {
@@ -104,6 +104,7 @@
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);
                 }
+                outputElement.textContent = '';
                 return response.body.getReader();
             })
             .then(reader => {
@@ -113,7 +114,8 @@
                 function read() {
                     reader.read().then(({ done, value }) => {
                         if (done) {
-                            outputElement.textContent += "\n[DONE] Stream ended.";
+                            // outputElement.textContent += "\n[DONE] Stream ended.";
+                            outputElement.textContent += "\n";
                             console.log('Stream ended.');
                             return;
                         }
