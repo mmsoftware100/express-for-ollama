@@ -17,9 +17,26 @@ app.get('/api/versions', (req, res) => {
 });
 
 // POST /api/chat
-app.post('/api/chat', (req, res) => {
+// app.post('/api/chat', (req, res) => {
+//   const data = req.body;
+//   res.json({ message: data });
+// });
+// POST /api/chat - Forward request to Ollama with streaming
+app.post('/api/chat', async (req, res) => {
   const data = req.body;
-  res.json({ message: data });
+
+  try {
+    // Make a request to Ollama with responseType as stream
+    const response = await axios.post('http://localhost:11434/api/chat', data, {
+      responseType: 'stream', // Stream response from Ollama
+    });
+
+    // Pipe the stream from Ollama directly to the response
+    response.data.pipe(res);
+  } catch (error) {
+    console.error('Error forwarding request to Ollama:', error);
+    res.status(500).json({ message: 'Error communicating with Ollama', error: error.message });
+  }
 });
 
 
