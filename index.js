@@ -3,7 +3,14 @@ const app = express();
 const path = require('path');
 const PORT = 5508;
 const axios = require('axios'); // Import axios
+const cors = require('cors'); // <--- Import cors
 
+
+// Enable CORS for all routes
+app.use(cors()); // <--- Use CORS here
+// app.use(cors({
+//   origin: 'https://your-frontend-domain.com', // Replace with your actual domain
+// }));
 // Middleware to parse JSON
 app.use(express.json());
 
