@@ -65,6 +65,9 @@ app.get('/', (req, res) => {
 app.get('/ds', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'deepseek.html'));
 });
+app.get('/ds2', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'ds2.html'));
+});
 
 // Start server
 app.listen(PORT, () => {
