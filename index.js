@@ -18,7 +18,7 @@ app.set('trust proxy', true); // Trust the reverse proxy
 
 // GET /hello
 app.get('/', (req, res) => {
-  res.send('Hello World');
+  res.send("<h2>Hello World!</h2><p>Welcome to the Chat AI API</p> <a href='/chat'>Start Chatting</a>");
 });
 
 // GET /api/versions
