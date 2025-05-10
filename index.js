@@ -71,6 +71,9 @@ app.get('/ds2', (req, res) => {
 app.get('/ds3', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'ds3.html'));
 });
+app.get('/gpt1', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'gpt1.html'));
+});
 
 // Start server
 app.listen(PORT, () => {
