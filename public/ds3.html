@@ -424,6 +424,7 @@
             
             function sendMessage() {
                 welcomeScreen.classList.add('hidden');
+                chatContainer.classList.remove('hidden');
                 const promptText = promptInput.value.trim();
                 if (!promptText) return;
                 
